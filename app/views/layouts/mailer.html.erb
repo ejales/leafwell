@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+      @media screen {
+          @font-face {
+              font-family: 'Lato';
+              font-style: normal;
+              font-weight: 400;
+              src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+          }
+
+          @font-face {
+              font-family: 'Lato';
+              font-style: normal;
+              font-weight: 700;
+              src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+          }
+
+          @font-face {
+              font-family: 'Lato';
+              font-style: italic;
+              font-weight: 400;
+              src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+          }
+
+          @font-face {
+              font-family: 'Lato';
+              font-style: italic;
+              font-weight: 700;
+              src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+          }
+      }
+
+      /* CLIENT-SPECIFIC STYLES */
+      body,
+      table,
+      td,
+      a {
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+      }
+
+      table,
+      td {
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+      }
+
+      img {
+          -ms-interpolation-mode: bicubic;
+      }
+
+      /* RESET STYLES */
+      img {
+          border: 0;
+          height: auto;
+          line-height: 100%;
+          outline: none;
+          text-decoration: none;
+      }
+
+      table {
+          border-collapse: collapse !important;
+      }
+
+      body {
+          height: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+      }
+
+      .logo{
+        padding: 40px 20px 20px 20px;
+        border-radius: 4px 4px 0px 0px;
+        color: #111111;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        line-height: 48px;
+        background-color: #ffffff;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      .logo-img{
+        display: block;
+        border: 0px;
+        width: 100%;
+        margin-bottom: 60px;
+      }
+
+      .title{
+        font-size: 48px;
+        font-weight: 400;
+        margin: 2;
+      }
+
+      .message{
+        padding: 20px 30px 40px 30px;
+        color: #666666;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        text-align: justify !important;
+      }
+
+      .button{
+        font-size: 20px;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 15px 25px;
+        border-radius: 2px;
+        border: 1px solid #00a65a;
+        display: inline-block;
+      }
+
+      .automatic-message{
+        padding: 30px 30px 30px 30px;
+        border-radius: 4px 4px 4px 4px;
+        color: #666666;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        background-color: #FFECD1;
+      }
+
+      .automatic-message-title{
+        font-size: 20px;
+        font-weight: 400;
+        color: #111111;
+        margin-bottom: 10px;
+      }
+
+      .automatic-message-body{
+        margin: 0;
+        text-align: justify !important;
+      }
+
+      .footer{
+        padding: 0px 30px 30px 0px;
+        color: #666666;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        background-color: #f4f4f4;
+        text-align: left;
+      }
+
+      .footer > p{
+        margin: 0;
+      }
+
+      .p-10{
+        padding: 0px 10px 0px 10px;
+      }
+
+      .p-30{
+        padding: 30px 10px 0px 10px;
+      }
+
+      .p-40{
+        padding: 40px 10px 40px 10px;
+      }
+      
+      .table-responsive{
+        border: 0;
+        border-spacing: 0;
+        width: 100%;
+        max-width: 600px;
+      }
+      
+      .table-responsive > td, .table-responsive > th{
+        padding: 0;
+      }
+
+      .text-center{
+        text-align: -webkit-center;
+      }
+
+      .text-left{
+        text-align: -webkit-left;
+      }
+
+      .master-color{
+        background-color: #00a65a;
+      }
+
+      .secondary-color{
+        background-color: #f4f4f4;
+      }
+
+      .mail-color{
+        background-color: #ffffff;
+      }
+
+      .td-button{
+        padding: 20px 30px 60px 30px;
+      }
+
+      /* iOS BLUE LINKS */
+      a[x-apple-data-detectors] {
+          color: inherit !important;
+          text-decoration: none !important;
+          font-size: inherit !important;
+          font-family: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+      }
+
+      /* MOBILE STYLES */
+      @media screen and (max-width:600px) {
+          h1 {
+              font-size: 32px !important;
+              line-height: 32px !important;
+          }
+      }
+
+      /* ANDROID CENTER FIX */
+      div[style*="margin: 16px 0;"] {
+          margin: 0 !important;
+      }
+    </style>
+  </head>
+  <body class="secondary-color">
+    <!-- HIDDEN PREHEADER TEXT -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <!-- LOGO -->
+      <tr>
+        <td class="master-color text-center">
+          <table class="table-responsive">
+            <tr>
+              <td valign="top" class="p-40 text-center"> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-10 master-color text-center">
+          <table class="table-responsive">
+            <tr>
+              <td class="logo">
+                <h1 class="title">LEAFWELL</h1>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-10 secondary-color text-center">
+          <table class="table-responsive">
+            <tr>
+              <td class="message text-left mail-color">
+                <%= yield %>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left mail-color">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="td-button text-center mail-color">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td style="border-radius: 3px;" class="master-color text-center">
+                            <%= link_to 'Update', onboarding_patient_url('set_patient', only_path: true), class: "button" %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="secondary-color text-center p-30">
+          <table class="table-responsive">
+            <tr>
+              <td class="automatic-message text-center">
+                <p class="automatic-message-title"><small>[AUTOMATIC MESSAGE]</small></p>
+                <p class="automatic-message-body">
+                  <small>
+                    This <b>Leafwell</b> message, and any files transmitted with it, are sent exclusively to the intended recipient(s)
+                    and may contain confidential information protected by professional secrecy. Its unauthorized use is illegal
+                    and subjects the violator to the penalties of the law. If you received it incorrectly, please send it back
+                    to the issuer, clarifying the mistake.
+                  </small>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-10 secondary-color text-center">
+          <table class="table-responsive">
+            <tr>
+              <td class="footer"> <br>
+                <p>Leafwell Team - <%= Date.today.year %></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

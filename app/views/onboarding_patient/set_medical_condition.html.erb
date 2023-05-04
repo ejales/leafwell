@@ -1,0 +1,21 @@
+<%= simple_form_for(@patient, url: wizard_path, method: :put) do |f| %>
+  <div class="card card-outline card-success">
+    <div class="card-header">
+      <h3 class="card-title font-weight-bold">
+        MEDICAL CONDITION DATA:
+      </h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <%= f.association :medical_conditions, collection: @mis, input_html: { multiple: true, class: 'form-control js-select2' } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-outline card-success">
+    <div class="card-footer">
+      <%= render 'links' %>
+      <%= f.submit 'Next Step', class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

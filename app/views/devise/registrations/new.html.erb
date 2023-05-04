@@ -1,0 +1,53 @@
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { 'data-turbo': false }) do |f| %>
+  <div class="card-body login-card-body">
+    <%= f.error_notification %>
+    <p class="login-box-msg">Sign Up</p>
+    <%= f.input :username, as: :string, required: true, label: false, wrapper_html: { class: 'input-group mb-3'} do %>
+      <%= f.input_field :username, class: "form-control", placeholder: 'Username' %>
+      <div class="input-group-append">  
+        <span class="input-group-text">
+          <span class="fas fa-user"></span>
+        </span>
+      </div>
+    <% end %>
+    <%= f.input :email, as: :string, required: true, label: false, wrapper_html: { class: 'input-group mb-3'} do %>
+      <%= f.input_field :email, class: "form-control", placeholder: 'E-mail' %>
+      <div class="input-group-append">  
+        <span class="input-group-text">
+          <span class="fas fa-envelope"></span>
+        </span>
+      </div>
+    <% end %>
+    <%= f.input :password, as: :password, required: true, label: false, wrapper_html: { class: 'input-group mb-3'} do %>
+      <%= f.input_field :password, class: "form-control", placeholder: 'Password' %>
+      <div class="input-group-append">  
+        <span class="input-group-text">
+          <span class="fas fa-lock"></span>
+        </span>
+      </div>
+    <% end %>
+    <%= f.input :password_confirmation, as: :password, required: true, label: false, wrapper_html: { class: 'input-group mb-3'} do %>
+      <%= f.input_field :password_confirmation, class: "form-control", placeholder: 'Password Confirmation' %>
+      <div class="input-group-append">  
+        <span class="input-group-text">
+          <span class="fas fa-lock"></span>
+        </span>
+      </div>
+    <% end %>
+    
+  </div>
+
+  <div class="card-footer">
+    <div class="form-actions">
+      <%= button_tag class: 'float-right btn btn-success' do %>
+        Log in
+        <i class="fa fa-paper-plane"></i>
+      <% end %>
+      <%= link_to new_user_session_path, class: "float-left btn btn-default" do %>
+        Cancel <i class="fa fa-close"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+

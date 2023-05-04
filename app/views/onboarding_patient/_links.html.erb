@@ -1,0 +1,2 @@
+<%= link_to "Cancel", root_path, class:"btn btn-danger" if @patient&.medical_answers&.pluck(:id)&.compact&.present? %>
+<%= link_to "Back", previous_wizard_path, class:"btn btn-default" unless previous_step?("sign_up") %>

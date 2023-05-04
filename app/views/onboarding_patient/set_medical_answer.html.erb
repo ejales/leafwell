@@ -1,0 +1,25 @@
+<%= simple_form_for(@patient, url: wizard_path, method: :put) do |f| %>
+  <div class="card card-outline card-success">
+    <div class="card-header">
+      <h3 class="card-title font-weight-bold">
+        MEDICAL QUESTIONS DATA:
+      </h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <%= f.fields_for :medical_answers do |ma| %>
+          <h3><%= ma.object.medical_question.question %></h3>
+          <%= ma.input :medical_question_id, as: :hidden, input_html: {value: ma.object.medical_question.id}  %>
+          <%= ma.input :value, as: :select, label: false %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-outline card-success">
+    <div class="card-footer">
+      <%= render 'links' %>
+      <%= f.submit 'Finish', class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,66 @@
+<%= simple_form_for(@user, url: wizard_path, method: :put) do |f| %>
+  <div class="card card-outline card-success">
+    <div class="card-header">
+      <h3 class="card-title font-weight-bold">
+        PATIENT DATA:
+      </h3>
+    </div>
+    <div class="card-body">
+    <%= f.fields_for :patient do |p| %>
+      <div class="row">
+        <div class="col-6">
+          <%= p.input :first_name %>
+        </div>
+        <div class="col-6">
+          <%= p.input :last_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= p.input :date_of_birth, html5: true %>
+        </div>
+        <div class="col-4">
+          <%= p.input :gender %>
+        </div>
+        <div class="col-4">
+          <%= p.input :phone_number %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <%= p.input :insurance_provider %>
+        </div>
+        <div class="col-6">
+          <%= p.input :fitness_activity %>
+        </div>
+      </div>      
+      <div class="row">
+        <div class="col-8">
+          <%= p.input :address %>
+        </div>
+        <div class="col-4">
+          <%= p.input :zip_code %>
+        </div>
+      </div>      
+      <div class="row">
+        <div class="col-4">
+          <%= p.input :country, as: :string %>
+        </div>
+        <div class="col-4">
+          <%= p.input :state %>
+        </div>
+        <div class="col-4">
+          <%= p.input :city %>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+
+  <div class="card card-outline card-success">
+    <div class="card-footer">
+      <%= render 'links' %>
+      <%= f.submit 'Next Step', class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

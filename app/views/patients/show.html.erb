@@ -1,0 +1,80 @@
+<% show_columns = Patient.attribute_names %>
+<% show_actions ||= ['new', 'edit', 'index'] %>
+
+<div class="card card-outline card-success">
+  <div class="card-header with-border">
+    <h3 class="card-title">
+      <%= @patient.class.model_name.human %>
+        <%= link_to onboarding_patient_path('set_patient'), class: "btn btn-warning btn-xs", data: { toggle: 'tooltip', placement: 'top', title: 'Edit attribute' } do %>
+          Edit <i class="fa fa-pencil fa-pen"></i>
+        <% end %>
+    </h3>
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-bordered table-striped p-0">
+      <thead>
+        <tr>
+          <th width='15%'><%= t('field') %></th>
+          <th><%= t('value') %></th>
+        </tr>
+      </thead>
+      <% show_columns.each do |column| %>
+        <tr>
+          <th>
+            <%= @patient.class.human_attribute_name(column) %>
+          </th>
+          <td>
+            <%= @patient.send(column) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="card card-outline card-success">
+  <div class="card-header with-border">
+    <h3 class="card-title">
+      <%= @patient.symptoms.first.class.model_name.human.pluralize %>
+    </h3>
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-bordered table-striped no-padding">
+    <tbody>
+      <% @patient.symptoms.each do |column| %>
+        <tr>
+          <td class="align-middle"><%= column.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card card-outline card-success">
+  <div class="card-header with-border">
+    <h3 class="card-title">
+      <%= @patient.medical_conditions.first.class.model_name.human.pluralize %>
+    </h3>
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-bordered table-striped no-padding">
+      <thead>
+        <tr>
+          <th>Medical Condition</th>
+          <th>Question</th>
+          <th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @patient.medical_answers.each do |ma| %>
+          <tr>
+            <td><%= ma.medical_question.medical_condition.name %></td>
+            <td><%= ma.medical_question.question %></td>
+            <td><%= ma.value %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<nav class="main-header navbar navbar-expand navbar-dark navbar-success border-0">
+  <!-- Left navbar links -->
+  <ul class="navbar-nav w-100">
+    <li class='nav-item w-100 text-center'>
+      <%= link_to root_path, class: "nav-link" do %>
+        <i class="pl-3 <%= @app_icon %>"></i>
+        <strong><%= @app_name %></strong>
+      <% end %>
+    </li>
+  </ul>
+  <!-- Right navbar links -->
+  <ul class="navbar-nav ml-auto">
+    <!-- Messages Dropdown Menu -->
+    <li class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+        <i class="fa fa-user"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <span class="dropdown-item dropdown-header"><%= current_user&.username %></span>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item">
+        <!-- Message Start -->
+        <div class="media">
+          <div class="media-body">
+            <p class="text-sm">
+              User since <%= current_user.created_at if current_user %>
+            </p>
+            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
+              Login Time: 
+              <%= distance_of_time_in_words(Time.zone.now, current_user&.current_sign_in_at) %>
+            </p>
+          </div>
+        </div>
+        <!-- Message End -->
+      </a>
+      <div class="dropdown-divider"></div>
+      <div class="row">
+        <div class="col">
+          <%= button_to destroy_user_session_path, class: 'dropdown-item dropdown-footer', method: "delete" do %>
+            Exit <i class="fa fa-sign-out-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>
